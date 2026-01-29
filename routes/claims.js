@@ -2,7 +2,7 @@ import express from "express";
 import Claim from "../models/Claim.js";
 import Deal from "../models/Deal.js";
 import protect from "../middleware/auth.js";
-import User from "../models/User.js";
+import User from "../models/user.js";
 
 const router = express.Router();
 
