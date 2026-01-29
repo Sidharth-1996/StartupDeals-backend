@@ -23,7 +23,7 @@ app.use(cors({
       callback(null, true);
     } else {
       console.log(`CORS blocked origin: ${origin}`);
-      callback(null, false);
+      return callback(new Error("Not allowed by CORS"));
     }
   },
   credentials: true,
@@ -31,6 +31,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
+app.options("*", cors());
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
